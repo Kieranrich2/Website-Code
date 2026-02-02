@@ -1,0 +1,25 @@
+{
+  "name": "website-code",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kieranrich2/Website-Code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kieranrich2/Website-Code/issues"
+  },
+  "homepage": "https://github.com/Kieranrich2/Website-Code#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
