@@ -17,8 +17,7 @@ fetch(headerPath)
         document.title = pageTitle + ' | CR & SJ Bearup LTD';
         document.querySelector('#subtitle').textContent = pageSubtitle;
 
-        // If in the services folder, add '../' to the menu links 
-        // so they point back to the main folder.
+        // If in the services folder, point back to the root folder
         if (isSub) {
             // Find each link in the new nav if in services folder
             const navLinks = document.querySelectorAll('nav a');
@@ -49,3 +48,112 @@ if (servicesNavFile && placeholder) {
     .catch(error => console.error('Error loading services navigation:', error));
 }
 // End of load service navigation
+
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.querySelector('#contactForm');
+    const serviceSelect = document.querySelector('#service');
+    const subServiceGroup = document.querySelector('#subServiceGroup');
+    const subServiceSelect = document.querySelector('#subService');
+    const statusDiv = document.querySelector('#formStatus');
+
+    // Availible options
+    const serviceMap = {
+        "Hay Making and Bailing": [
+            "Hay Making", 
+            "Straw Bailing", 
+            "Haylage Making", 
+            "Silage Making"
+        ],
+        "Soil Preparation": [
+            "Harrowing",
+            "Ploughing",
+            "Ring Rolling",
+            "Ripping",
+            "Seeding"
+        ],
+        "Pasture Maintenance": [
+            "Spraying",
+            "Flail Mowing",
+            "Fertilizing",
+            "Flat Rolling"
+        ],
+        "Forage Sales": [
+            "Hay Sales",
+            "Straw Sales",
+            "Haylage Sales"
+        ],
+        "Manure": [
+            "Manure Removal",
+            "Manure Spreading"
+        ],
+        "Trees and Hedges": [
+            "Digger & Sheers",
+            "Chainsaw Operator",
+            "Hedge Cutting"
+        ],
+        "Groundwork & Arena Construction": [
+            "Arena Construction",
+            "Groundworks"
+        ]
+    };
+
+    // Show 2nd Options based on service selection
+    serviceSelect.addEventListener('change', function() {
+        const selectedValue = this.value;
+        const subOptions = serviceMap[selectedValue];
+
+        if (subOptions) {
+            subServiceSelect.innerHTML = ''; 
+            subOptions.forEach(option => {
+                const el = document.createElement('option');
+                el.value = option;
+                el.textContent = option;
+                subServiceSelect.appendChild(el);
+            });
+            subServiceGroup.style.display = 'block';
+        } else {
+            subServiceGroup.style.display = 'none';
+        }
+    });
+
+    // Submit to server
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = document.querySelector('#submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Sending...';
+        
+        // All data in JSON object
+        const formData = {
+            email: document.querySelector('#email').value,
+            service: serviceSelect.value,
+            subService: subServiceSelect.value, 
+            message: document.querySelector('#message').value
+        };
+
+            // Send the data to the /sendEmail route in server.js
+        try {
+            const response = await fetch('/sendEmail', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                statusDiv.innerHTML = `>${result.message}</p>`;
+                contactForm.reset();
+                subServiceGroup.style.display = 'none';
+            } else {
+                statusDiv.innerHTML = `<p>${result.error || 'Error'}</p>`;
+            }
+        } catch (error) {
+            statusDiv.innerHTML = `<p>Could not connect to server.</p>`;
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Submit Enquiry';
+        }
+    });
+});

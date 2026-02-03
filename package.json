@@ -20,6 +20,9 @@
   "homepage": "https://github.com/Kieranrich2/Website-Code#readme",
   "description": "",
   "dependencies": {
-    "express": "^5.2.1"
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "nodemailer": "^7.0.13"
   }
 }
