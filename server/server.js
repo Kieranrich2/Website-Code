@@ -13,15 +13,13 @@ const __dirname = path.dirname(__filename);
 
 // Load .env variables 
 dotenv.config({ path: path.join(__dirname, '../.env') });
-console.log('Email User:', process.env.EMAIL_USER);
-console.log('Email Pass:', process.env.EMAIL_PASS ? '******' : 'Not Set');
 
 // This tells Express how to find the public folder
 app.use(express.static(path.join(__dirname, '../public'), { extensions: ['html'] }));
 app.use(express.json());
 
 // Email Contact Form 
-// Contact Form Rate Limiter (Security, prevent spam emails)
+// User can send 5 emails every 15 minutes to prevent spam
 const contactFormLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 5, // User Email limit
