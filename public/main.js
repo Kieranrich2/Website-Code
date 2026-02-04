@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const serviceSelect = document.querySelector('#service');
     const subServiceGroup = document.querySelector('#subServiceGroup');
     const subServiceSelect = document.querySelector('#subService');
-    const statusDiv = document.querySelector('#formStatus');
+    const status = document.querySelector('#formStatus');
 
     // Availible options
     const serviceMap = {
@@ -97,6 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     };
 
+    // Additional options for Groundworks
+    const groundworksSubServices = ["Fenceing", "Water Pipe Installation", "Footings", "Ground Leveling", "Bin Pads", "Farm Access Tracks"];
+    
+
     // Show 2nd Options based on service selection
     serviceSelect.addEventListener('change', function() {
         const selectedValue = this.value;
@@ -113,6 +117,19 @@ document.addEventListener('DOMContentLoaded', () => {
             subServiceGroup.style.display = 'block';
         } else {
             subServiceGroup.style.display = 'none';
+        }
+    });
+
+    // If groundworks is selected show groundwork options
+    subServiceSelect.addEventListener('change', function() {
+        if (this.value === 'Groundworks') {
+            subServiceSelect.innerHTML = '<option value="" disabled selected>Select a Groundwork Service...</option>';
+            groundworksSubServices.forEach(option => {
+                const el = document.createElement('option');
+                el.value = option;
+                el.textContent = option;
+                subServiceSelect.appendChild(el);
+            });
         }
     });
 
@@ -143,14 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const result = await response.json();
 
             if (response.ok) {
-                statusDiv.innerHTML = `>${result.message}</p>`;
+                status.innerHTML = `<p>${result.message}</p>`;
                 contactForm.reset();
                 subServiceGroup.style.display = 'none';
             } else {
-                statusDiv.innerHTML = `<p>${result.error || 'Error'}</p>`;
+                status.innerHTML = `<p>${result.error || 'Error'}</p>`;
             }
         } catch (error) {
-            statusDiv.innerHTML = `<p>Could not connect to server.</p>`;
+            status.innerHTML = `<p>Could not connect to server.</p>`;
         } finally {
             submitBtn.disabled = false;
             submitBtn.innerText = 'Submit Enquiry';
