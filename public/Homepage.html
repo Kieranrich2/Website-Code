@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <!-- Preset title and subtitle for homepage -->
@@ -21,9 +22,33 @@
     <h3>Welcome to CR & SJ Bearup LTD</h3>
     <h3>About Us</h3>
     <p>Ask the client what they would like written here.</p>
+
+    <!-- Write a Review -->
+    <h3>Are you happy with our services?</h3>
+    <p>We would love to hear your feedback</p>
+    <a href="https://search.google.com/local/writereview?placeid=ChIJYZ587-At30cRDmFp82xBGlM"
+        target="_blank"
+        class="googleReviewBtn">
+        <span class="google-icon">
+            <i class="fa-brands fa-google"></i> Write a Google Review <!-- FontAwesome for Google Logo -->
+        </span>
+    </a>
+
+    <section id="googleReviews">
+        <h3>What our customers say about us</h3>
+        <div id="reviewsContainer">
+            <p>Loading the latest reviews...</p>
+        </div>
+    </section>
 </main>
 <!-- JavaScript Link -->
 <script src="main.js"></script>
 <!-- End of JavaScript Link -->
+<!-- Google API  -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS4kNdwDPkvfLN_v4wHMYTv9MQvtG-8fY&libraries=places&callback=initReviews" async defer loading="async"></script>
+<!-- end of Google API -->
+<!-- Reviews JavaScript -->
+<script src="googleReviews.js"></script>
+<!-- End of Reviews JavaScript -->
 </body>
 
