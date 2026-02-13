@@ -1,9 +1,10 @@
 function initReviews(){
-    const placeId = "ChIJYZ587-At30cRDmFp82xBGlM"; 
+    const placeId = "ChIJYZ587-At30cRDmFp82xBGlM"; // Google PLace ID for CR&SJ Bearup LTD
     const container = document.getElementById("reviewsContainer");
     
     const service = new google.maps.places.PlacesService(document.createElement('div'));
     
+    // Fetch the reviews from google
     service.getDetails({ placeId: placeId, fields: ['reviews'] }, (place, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK && place.reviews) {
             container.innerHTML = ""; 

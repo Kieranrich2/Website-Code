@@ -1,5 +1,21 @@
 <header>
         <h2 id="subtitle"></h2>
+        <!-- Search Bar -->
+         <section class="searchBar">
+            <div class="row">
+                <input type="text" id="searchText" placeholder="Search"
+                autocomplete="off">
+                <button onclick="selectOption({textContent: document.querySelector('#searchText').value})">Search</button>
+            </div>
+            <div class="predictiveResults">
+
+            </div>
+        </section>
+        <!-- Back button -->
+        <button onclick="history.back()" class="backBtn" id="backBtn">
+            <span class="arrow">Back</span>
+        </button>
+        <!-- Navigation -->
         <nav>
             <ul>
                 <li><a href="homepage.html">Home</a></li>
@@ -8,3 +24,4 @@
             </ul>
         </nav>
     </header>
+    

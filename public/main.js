@@ -11,6 +11,17 @@ fetch(headerPath)
     .then(data => {
         document.querySelector("#headerPlaceholder").innerHTML = data;
 
+        // Call search bar after the header has loaded
+        if(typeof initSearchBar === "function"){ 
+            initSearchBar();
+        }
+
+        // Back Button 
+        // Hide if on homepage 
+        if (window.location.pathname.includes("homepage.html")){
+            document.querySelector("#backBtn").style.display="none";
+        }
+
         // Get the correct title and subtitle from the current page
         const pageTitle = document.body.getAttribute("data-title");
         const pageSubtitle = document.body.getAttribute("data-subtitle");

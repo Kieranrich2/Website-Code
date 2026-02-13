@@ -34,9 +34,8 @@ app.post("/sendEmail", contactFormLimiter, async (req, res) => {
 
 // End of Email Contact Form
 
-// Sends the homepage to load on open
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/homepage.html"));
+    res.redirect("/homepage.html");
 });
 
 app.listen(PORT, () => {
