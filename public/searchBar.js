@@ -54,7 +54,8 @@ function initSearchBar() {
         if (input.length) {
             result = predictiveSearchOptions.filter((keyword) => {
                 return keyword.toLowerCase().includes(input.toLowerCase());
-            });
+            })
+            .slice(0, 5); // Only show top 5 options
         }
         displayResults(result);
     };
