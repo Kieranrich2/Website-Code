@@ -21,6 +21,8 @@ const predictiveSearchOptions = [
     "Ripping",
     "Seeding",
     "Spraying",
+    "Grassland Spraying",
+    "Crop Spraying",
     "Flail Mowing",
     "Fertilizing",
     "Flat Rolling",
@@ -40,7 +42,6 @@ const predictiveSearchOptions = [
     "Farm Accses Tracks",
 ];
 
-
 // Wait for header to load then call function
 function initSearchBar() {
     const searchText = document.querySelector("#searchText");
@@ -59,6 +60,16 @@ function initSearchBar() {
         }
         displayResults(result);
     };
+
+    // Search on enter key
+    searchText.onkeydown = function (e) {
+        if (e.key === "Enter") {
+            const firstOption = document.querySelector(".predictiveResults li");
+            if (firstOption) {
+                selectOption(firstOption);
+            }
+        }
+    }
 
     // hide options if somewhere else is clicked
     document.addEventListener("click", (e) => {

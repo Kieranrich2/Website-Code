@@ -120,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 status.innerHTML = `<p>${result.error || 'Error'}</p>`;
             }
         } catch (error) {
+            console.error("Error submitting form:", error);
             status.innerHTML = `<p>Could not connect to server.</p>`;
         } finally {
             submitBtn.disabled = false;
