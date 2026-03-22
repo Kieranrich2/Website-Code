@@ -1,0 +1,80 @@
+/* Variables  */
+:root{
+    --backgroundCoulor: #a32020;
+    --secondaryColour: #f5f5f5;
+    --blackTextColour: #000000;
+    
+}
+/* End of Variables */
+
+/* header */
+header {
+    background-color: var(--backgroundCoulor);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    color: var(--secondaryColour);
+    padding: 12px 16px;
+    /* Round of the corners  */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+/* Search bar  */
+.searchBar{
+    width:100%;
+}
+
+.searchBar .row {
+    display: flex;
+}
+
+#searchText{
+    background-color: var(--secondaryColour);
+    padding: 8px 12px;
+    border: none;
+    font-size: 1rem;
+    width: 100%;
+    color: var(--blackTextColour);
+    border-radius: 4px 0 0 4px;
+}
+
+.searchBar button{
+    background-color: var(--secondaryColour);
+    color: var(--blackTextColour);
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+/* End of Search bar */
+
+/* back button  */
+.backbtn{
+}
+
+/* Navigation bar  */
+nav{
+    margin-top: 12px;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;  
+}
+
+nav a{
+    display: block;
+    background-color: var(--secondaryColour);
+    color: var(--blackTextColour);
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 0;
+    border: 2px solid transparent;
+}
+/* End of Header  */
+@media (min-width:768px){
+    .searchBar {
+        width:320px;
+    }
+}
