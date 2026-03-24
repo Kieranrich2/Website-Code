@@ -4,14 +4,22 @@
     --secondaryColour: #f5f5f5;
     --blackTextColour: #000000;
     --lightGray: #f5f5f5;
+    --white: #ffffff;
+    font: sans-serif;
+
 }
 
 /* End of Variables --------------------------------------------------------*/
+
 
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+}
+
+body{
+    font-family: "Segoe", Arial, sans-serif;
 }
 
 /* header -------------------------------------------------------------- */
@@ -69,7 +77,7 @@ header {
     top: 100%;
     cursor: pointer;
     font-size: 0.9rem;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid var(--secondaryColour);
 }
 
 .predictiveResults li:last-child {
@@ -143,7 +151,7 @@ h3 {
     align-items: center;
     gap: 8px;
     padding: 10px 24px;
-    background-color: white;
+    background-color: var(--white);
     color: var(--backgroundCoulor);
     text-decoration: none;
     border-radius: 50px;
@@ -154,7 +162,7 @@ h3 {
 }
 
 .review {
-    background-color: white;
+    background-color: var(--white);
     border-radius: 8px;
     padding: 16px;
     margin-bottom: 12px;
@@ -235,8 +243,7 @@ h3 {
     border-radius: 4px;
     font-size: 1rem;
     color: var(--blackTextColour);
-    background-color: white;
-    font-family: inherit;
+    background-color: var(--white);
 }
 
 #submitBtn {
@@ -254,12 +261,20 @@ h3 {
 /* End of contact us page ------------------------------------------------------- */
 
 /* Services page ----------------------------------------------------------  */
+.serviceGrid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:16px;
+    margin-top: 16px;
+}
+
 .serviceCard {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
     text-decoration: none;
     display: block;
+    margin-bottom: 16px;
 }
 
 .serviceCard img {
@@ -276,7 +291,7 @@ h3 {
     right: 0;
     padding: 12px 16px;
     background-color: rgba(163, 32, 32, 0.75);
-    color: white;
+    color: var(--white);
     font-size: 1rem;
     font-weight: 600;
 }
