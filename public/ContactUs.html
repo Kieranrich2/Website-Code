@@ -1,83 +1,99 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <title>Loading...</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <!-- Preset title and subtitle for homepage -->
+
 <body data-title="Contact Us" data-subtitle="Make an Equiry Today">
-<!-- End of preset title and subtitle for homepage --> 
+    <!-- End of preset title and subtitle for homepage -->
 
-<!-- PLaceholder for the header -->
-<div id="headerPlaceholder"></div>
-<!-- End of placeholder for the header -->
-
-
-<main>
-    <h3>Contact Us</h3>
-    <p>Phone: 07973977962</p>
-
-<!-- Contact Form -->
-    <h3>Send us and Enquiry</h3>
-    <form id="contactForm">
-        <div class="form-group">
-            <!-- User enters Email Address -->
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" required placeholder="Please enter your email address">
-        </div>
-
-        <div class="form-group">
-            <label for="service">Which service would you like to enquire about?</label>
-            <select id="service" required>
-                <!-- First drop down Options -->
-                <option value="" disabled selected>Select a Service...</option>
-                <option value="Hay Making and Bailing">Hay Making and Bailing</option>
-                <option value="Soil Preparation">Soil Preparation</option>
-                <option value="Pasture Maintenance">Pasture Maintenance</option>
-                <option value="Forage Sales">Forage Sales</option>
-                <option value="Manure">Manure</option>
-                <option value="Trees and Hedges">Trees and Hedges</option>
-                <option value="Groundwork & Arena Construction">Groundwork & Arena Construction</option>
-                </select>
-        </div>
-
-        <!-- Second drop down Options depending on first selection -->
-        <div id="subServiceGroup" class="form-group" style="display: none;">
-            <label for="subService">Specific Service:</label>
-            <select id="subService">
-                </select>
-        </div>
-            <!-- User enters message -->
-        <div class="form-group">
-            <label for="message">Message:</label>
-            <textarea id="message" required placeholder="What can we help you with?"></textarea>
-        </div>
-
-        <button type="submit" id="submitBtn">Submit Enquiry</button>
-        <div id="formStatus"></div>
-    </form>
+    <!-- PLaceholder for the header -->
+    <div id="headerPlaceholder"></div>
+    <!-- End of placeholder for the header -->
 
 
-<!-- End of Contact Form -->
-    <h3>Where to Find Us</h3>
-    <p></p>
-    <section class="googleMaps">
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70890.41191513698!2d0.5555767655122363!3d51.341132767061026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df2de0ef7c9e61%3A0x531a416cf369610e!2sLittle%20Place%20Farm!5e0!3m2!1sen!2suk!4v1770050837514!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </section>
-</main>
-<!-- JavaScript Link -->
-<script src="main.js"></script>
-<!-- End of JavaScript Link -->
- 
- <!-- Contact Form JavaScript Link  -->
-<script src="contactFormFrountend.js"></script>
- <!-- End of Contact Form JavaScript Link  -->
+    <main>
+        <section class="sectionBox">
+            <div class="contactDetails">
+                <h3>Contact Us:</h3>
+                <p><i class="fa-solid fa-phone"></i>07973977962</p>
+                <p><i class="fa-solid fa-envelope"></i>crandsjbearupltd@hotmail.co.uk</p>
+                <p><i class="fa-solid fa-location-dot"></i>Little Place Farm Yaugher Lane, Hartlip, Sittingbourne,
+                    Kent, ME9 7XE</p>
+            </div>
+        </section>
+        <!-- Contact Form -->
+        <section class="sectionBox">
+            <h3>Make an Enquiry:</h3>
+            <form id="contactForm">
+                <div class="formGroup">
+                    <!-- User enters Email Address -->
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" required placeholder="Please enter your email address">
+                </div>
 
- <!-- Search Bar JavaScript -->
-<script src="searchBar.js"></script>
-<!-- End of Search Bar JavaScript -->
+                <div class="formGroup">
+                    <label for="service">Which service would you like to enquire about?</label>
+                    <select id="service" required>
+                        <!-- First drop down Options -->
+                        <option value="" disabled selected>Select a Service...</option>
+                        <option value="Hay Making and Bailing">Hay Making and Bailing</option>
+                        <option value="Soil Preparation">Soil Preparation</option>
+                        <option value="Pasture Maintenance">Pasture Maintenance</option>
+                        <option value="Forage Sales">Forage Sales</option>
+                        <option value="Manure">Manure</option>
+                        <option value="Trees and Hedges">Trees and Hedges</option>
+                        <option value="Groundwork & Arena Construction">Groundwork & Arena Construction</option>
+                    </select>
+                </div>
+
+                <!-- Second drop down Options depending on first selection -->
+                <div id="subServiceGroup" class="formGroup" style="display: none;">
+                    <label for="subService">Specific Service:</label>
+                    <select id="subService">
+                    </select>
+                </div>
+                <!-- User enters message -->
+                <div class="formGroup">
+                    <label for="message">Message:</label>
+                    <textarea id="message" required placeholder="What can we help you with?"></textarea>
+                </div>
+
+                <button type="submit" id="submitBtn">Submit Enquiry</button>
+                <div id="formStatus"></div>
+            </form>
+        </section>
+
+
+        <!-- End of Contact Form -->
+        <section class="sectionBox">
+            <h3>Where to Find Us:</h3>
+            <p></p>
+            <section class="googleMaps">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70890.41191513698!2d0.5555767655122363!3d51.341132767061026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df2de0ef7c9e61%3A0x531a416cf369610e!2sLittle%20Place%20Farm!5e0!3m2!1sen!2suk!4v1770050837514!5m2!1sen!2suk"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>
+        </section>
+    </main>
+    <!-- JavaScript Link -->
+    <script src="main.js"></script>
+    <!-- End of JavaScript Link -->
+
+    <!-- Contact Form JavaScript Link  -->
+    <script src="contactFormFrountend.js"></script>
+    <!-- End of Contact Form JavaScript Link  -->
+
+    <!-- Search Bar JavaScript -->
+    <script src="searchBar.js"></script>
+    <!-- End of Search Bar JavaScript -->
 </body>

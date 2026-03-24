@@ -1,13 +1,20 @@
-/* Variables  */
-:root{
+/* Variables ---------------------------------------------------------- */
+:root {
     --backgroundCoulor: #a32020;
     --secondaryColour: #f5f5f5;
     --blackTextColour: #000000;
-    
+    --lightGray: #f5f5f5;
 }
-/* End of Variables */
 
-/* header */
+/* End of Variables --------------------------------------------------------*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* header -------------------------------------------------------------- */
 header {
     background-color: var(--backgroundCoulor);
     position: sticky;
@@ -15,20 +22,20 @@ header {
     z-index: 100;
     color: var(--secondaryColour);
     padding: 12px 16px;
-    /* Round of the corners  */
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 0 0 12px 12px;
 }
+
 /* Search bar  */
-.searchBar{
-    width:100%;
+.searchBar {
+    width: 100%;
+    position: relative;
 }
 
 .searchBar .row {
     display: flex;
 }
 
-#searchText{
+#searchText {
     background-color: var(--secondaryColour);
     padding: 8px 12px;
     border: none;
@@ -38,32 +45,64 @@ header {
     border-radius: 4px 0 0 4px;
 }
 
-.searchBar button{
+.searchBar button {
     background-color: var(--secondaryColour);
     color: var(--blackTextColour);
     border: none;
     padding: 8px 16px;
     cursor: pointer;
 }
+
 /* End of Search bar */
 
-/* back button  */
-.backbtn{
+/* Predictive search results  */
+.predictiveResults ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
+.predictiveResults li {
+    padding: 10px 16px;
+    color: var(--blackTextColour);
+    background-color: var(--secondaryColour);
+    top: 100%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.predictiveResults li:last-child {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+}
+
+/* End of predictive search results   */
+
+/* back button  */
+.backBtn {
+    background-color: transparent;
+    margin-top: 12px;
+    font-size: 1.75rem;
+    border: none;
+    color: var(--secondaryColour);
+}
+
+/* End of back button   */
+
 /* Navigation bar  */
-nav{
+nav {
     margin-top: 12px;
 }
 
-nav ul{
+nav ul {
     list-style: none;
     display: flex;
     margin: 0;
-    padding: 0;  
+    padding: 0;
 }
 
-nav a{
+nav a {
     display: block;
     background-color: var(--secondaryColour);
     color: var(--blackTextColour);
@@ -72,9 +111,178 @@ nav a{
     border-radius: 0;
     border: 2px solid transparent;
 }
-/* End of Header  */
-@media (min-width:768px){
+
+/* End of Header ------------------------------------------------------------ */
+
+/* Main --------------------------------------------------------------------------- */
+main {
+    padding: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--backgroundCoulor);
+    margin-bottom: 8px;
+    margin-top: 24px;
+}
+
+.sectionBox {
+    background-color: var(--lightGray);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 20px;
+}
+
+/* Google Review Button  */
+.googleReviewBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background-color: white;
+    color: var(--backgroundCoulor);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    margin-top: 8px;
+    border: 2px solid var(--backgroundCoulor);
+    font-weight: 600;
+}
+
+.review {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--backgroundCoulor);
+}
+
+.review strong {
+    color: var(--backgroundCoulor);
+    font-size: 1rem;
+}
+
+.review p {
+    margin: 4px;
+    color: var(--blackTextColour);
+    font-size: 0.8rem;
+}
+
+/* End of Google Review Button   */
+/* End of main ---------------------------------------------------------- */
+
+/* Contact us page ---------------------------------------------------------- */
+/* Contact Details  */
+.contactDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.contactDetails p {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0;
+    font-size: 1rem;
+    color: var(--blackTextColour);
+}
+
+.contactDetails i {
+    color: var(--backgroundCoulor);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* End of contact details  */
+/* Contact form  */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+    max-width: 500px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.formGroup label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--blackTextColour);
+    margin-bottom: 4px;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    width: 100%;
+    max-width: 460px;
+    padding: 10px 12px;
+    border: 2px solid var(--secondaryColour);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--blackTextColour);
+    background-color: white;
+    font-family: inherit;
+}
+
+#submitBtn {
+    padding: 10px 24px;
+    background-color: var(--backgroundCoulor);
+    color: var(--secondaryColour);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* End of contact form   */
+/* End of contact us page ------------------------------------------------------- */
+
+/* Services page ----------------------------------------------------------  */
+.serviceCard {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+}
+
+.serviceCard img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.serviceLabel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 16px;
+    background-color: rgba(163, 32, 32, 0.75);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+}
+/* End of services page ----------------------------------------------------------   */
+@media (min-width:768px) {
     .searchBar {
-        width:320px;
+        width: 320px;
     }
 }
