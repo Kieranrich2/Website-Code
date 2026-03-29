@@ -18,6 +18,10 @@
 
 <main>
     <h3>Hay Making</h3>
+    <section id="equipmentGrid"></section>
+    <section class="sectionBox">
+            <a href="../contactUs.html" class="makeAnEquiryBtn">Make an Enquiry</a>
+        </section>
 
 </main>
 <!-- JavaScript Link -->
@@ -27,4 +31,14 @@
 <!-- Search Bar JavaScript -->
 <script src="../searchBar.js"></script>
 <!-- End of Search Bar JavaScript -->
+
+<!-- Load templates  -->
+<script src="hayMakingAndBailingTemplatesJs.js"></script>
+<script>
+    (async () => {
+        await loadTemplates(["mowers", "turner", "rake", "bailers", "carting"], "equipmentGrid");
+    })();
+</script>
+<!-- End of loading templates -->
+
 </body>

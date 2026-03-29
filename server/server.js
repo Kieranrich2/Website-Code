@@ -18,6 +18,31 @@ dotenv.config({ path: path.join(__dirname, "../.env") });
 app.use(express.static(path.join(__dirname, "../public"), { extensions: ["html"] }));
 app.use(express.json());
 
+// Fetch Google Reviews 
+
+app.get("/api/reviews", async (req, res) => {
+    const placeId = "ChIJYZ587-At30cRDmFp82xBGlM";
+    const apiKey = process.env.GOOGLE_API_KEY; // Fetch the API key
+    // Fetch reviews from Google Places API
+    try {
+        const response = await fetch(
+            `https://places.googleapis.com/v1/places/${placeId}`,
+            {
+                headers: {
+                    'X-Goog-Api-Key': apiKey,
+                    'X-Goog-FieldMask': 'reviews'
+                }
+            }
+        );
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        console.error("Reviews fetch error:", error);
+        res.status(500).json({ error: "Failed to load reviews" });
+    }
+});
+// End of Fetch Google Reviews
+
 // Email Contact Form 
 // User can send 5 emails every 15 minutes to prevent spam
 const contactFormLimiter = rateLimit({

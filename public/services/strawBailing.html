@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <title>Loading...</title>
     <meta charset="UTF-8">
@@ -9,22 +10,37 @@
 </head>
 
 <!-- Preset title and subtitle for Services page -->
-<body data-title="Straw Bailing" data-subtitle="Our Straw Bailing Services" data-servicesNav="services/servicesPageNav.html">
-<!-- End of preset title and subtitle for Services page  -->
 
-<!-- Placeholder for the header  -->
-<div id="headerPlaceholder"></div>
-<!-- End of placeholder for the header  -->
+<body data-title="Straw Bailing" data-subtitle="Our Straw Bailing Services"
+    data-servicesNav="services/servicesPageNav.html">
+    <!-- End of preset title and subtitle for Services page  -->
 
-<main>
-    <h3>Straw Bailing</h3>
+    <!-- Placeholder for the header  -->
+    <div id="headerPlaceholder"></div>
+    <!-- End of placeholder for the header  -->
 
-</main>
-<!-- JavaScript Link -->
-<script src="../main.js"></script>
-<!-- End of JavaScript Link -->
+    <main>
+        <h3>Straw Bailing</h3>
+        <section id="equipmentGrid"></section>
+        <section class="sectionBox">
+            <a href="../contactUs.html" class="makeAnEquiryBtn">Make an Enquiry</a>
+        </section>
 
-<!-- Search Bar JavaScript -->
-<script src="../searchBar.js"></script>
-<!-- End of Search Bar JavaScript -->
+    </main>
+    <!-- JavaScript Link -->
+    <script src="../main.js"></script>
+    <!-- End of JavaScript Link -->
+
+    <!-- Search Bar JavaScript -->
+    <script src="../searchBar.js"></script>
+    <!-- End of Search Bar JavaScript -->
+
+    <!-- Load templates  -->
+    <script src="hayMakingAndBailingTemplatesJs.js"></script>
+    <script>
+        (async () => {
+            await loadTemplates(["bailers", "carting"], "equipmentGrid");
+        })();
+    </script>
+    <!-- End of loading templates -->
 </body>
