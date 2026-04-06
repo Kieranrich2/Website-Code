@@ -52,11 +52,11 @@ function initSearchBar() {
     searchText.onkeyup = function () {
         let result = [];
         let input = searchText.value;
-        if (input.length) {
+        if (input.length) { // Checks the input field isnt empty
             result = predictiveSearchOptions.filter((keyword) => {
                 return keyword.toLowerCase().includes(input.toLowerCase());
             })
-            .slice(0, 5); // Only show top 5 options
+            .slice(0, 5); // Only show 5 options
         }
         displayResults(result);
     };
@@ -102,11 +102,12 @@ function selectOption(list) {
     const searchText = document.querySelector("#searchText");
     const predictiveResults = document.querySelector(".predictiveResults");
     
-    // Get text regardless of if it's from a list item or a manual object
+    // Gets the selected option 
     const selectedOption = list.textContent || list.value || "";
     if (!selectedOption) return;
-
+    // shows the users selected option within the input field
     if (searchText) searchText.value = selectedOption;
+    // Removes the drop down list from the screen
     if (predictiveResults) predictiveResults.innerHTML = "";
     
     // Directs users to there desired page
@@ -120,7 +121,7 @@ function selectOption(list) {
         const fileName = selectedOption
             .replace(/ &/g, "And") // Replace "&" with And
             .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => {
-                return index === 0 ? word.toLowerCase() : word.toUpperCase();
+                return index === 0 ? word.toLowerCase() : word.toUpperCase(); // Puts in camel case
             })
             .replace(/\s+/g, "");
 

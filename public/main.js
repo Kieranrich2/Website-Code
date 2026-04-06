@@ -42,21 +42,4 @@ fetch(headerPath)
 
 // End of fetch header.html file
 
-// Load service navigation
-// Get the services navigation file path from data attribute
-const servicesNavFile = document.body.getAttribute("data-servicesNav");
-// Find the placeholder for the services navigation
-const placeholder = document.querySelector("#servicesNavPlaceHolder");
-if (servicesNavFile && placeholder) {
-  fetch(servicesNavFile)
-    .then(response => {
-        if (!response.ok) throw new Error("file not found");
-        return response.text();
-    })
-    .then(data => {
-        placeholder.innerHTML = data;
-    })
-    .catch(error => console.error("Error loading services navigation:", error));
-}
-// End of load service navigation
 

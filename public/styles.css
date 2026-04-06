@@ -284,7 +284,9 @@ h3 {
 /* Services page ----------------------------------------------------------  */
 .serviceGrid{
     display:grid;
-    grid-template-columns: 1fr;
+    /* 1 row in the grid  */
+    grid-template-columns: 1fr; 
+    /* Gap between service cards  */
     gap:16px;
     margin-top: 16px;
 }
@@ -292,7 +294,9 @@ h3 {
 .serviceCard {
     position: relative;
     border-radius: 12px;
+    /* Images match the shape of the servuce card  */
     overflow: hidden;
+    /* Removes the underline  */
     text-decoration: none;
     display: block;
     margin-bottom: 16px;
@@ -307,6 +311,7 @@ h3 {
 
 .serviceLabel {
     position: absolute;
+    /* pins label to bottom left and right of the card  */
     bottom: 0;
     left: 0;
     right: 0;

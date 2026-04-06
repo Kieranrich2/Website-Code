@@ -29,13 +29,13 @@ app.get("/api/reviews", async (req, res) => {
             `https://places.googleapis.com/v1/places/${placeId}`,
             {
                 headers: {
-                    'X-Goog-Api-Key': apiKey,
-                    'X-Goog-FieldMask': 'reviews'
+                    'X-Goog-Api-Key': apiKey, // google identifies the key and allows access to the API
+                    'X-Goog-FieldMask': 'reviews' // google will only return the reviews
                 }
             }
         );
         const data = await response.json();
-        res.json(data);
+        res.json(data); // Sends the reviews back to the frontend
     } catch (error) {
         console.error("Reviews fetch error:", error);
         res.status(500).json({ error: "Failed to load reviews" });
