@@ -1,5 +1,5 @@
 
-window.loadTemplates = async function(templateIds, containerId) {
+window.loadTemplates = async function(templateIds, containerId, templateFile) {
   const container = document.querySelector(`#${containerId}`); // Finds the container to put the templates in
 
   if (!container) { 
@@ -9,7 +9,7 @@ window.loadTemplates = async function(templateIds, containerId) {
 
   try {
     // Fetches the HTML file containing the templates
-    const response = await fetch("hayMakingAndBailingEquipmentTemplates.html");
+    const response = await fetch(templateFile);
     // Converts the response to text
     const html = await response.text();
     // Parses the HTML string into a document

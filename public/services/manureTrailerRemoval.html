@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Loading...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<!-- Preset title and subtitle for Services page -->
+<body data-title="Manure Trailer Removal" data-subtitle="Our Manure Trailer Removal Services:" data-servicesNav="services/servicesPageNav.html">
+<!-- End of preset title and subtitle for Services page  -->
+
+<!-- Placeholder for the header  -->
+<div id="headerPlaceholder"></div>
+<!-- End of placeholder for the header  -->
+
+<main>
+    <section id="equipmentGrid"></section>
+    <section class="sectionBox">
+            <a href="../contactUs.html" class="makeAnEquiryBtn">Make an Enquiry</a>
+        </section>
+</main>
+
+<!-- load Templates  -->
+<script src="loadTemplates.js"></script>
+<script>
+    (async () => {
+        await loadTemplates(["manureTrailerRemoval"], "equipmentGrid", "manureTemplates.html");
+    })();
+</script>
+<!-- end of loading templates  -->
+
+
+<!-- JavaScript Link -->
+<script src="../main.js"></script>
+<!-- End of JavaScript Link -->
+
+<!-- Search Bar JavaScript -->
+<script src="../searchBar.js"></script>
+<!-- End of Search Bar JavaScript -->

@@ -5,9 +5,7 @@
     --blackTextColour: #000000;
     --lightGray: #f5f5f5;
     --white: #ffffff;
-
 }
-
 /* End of Variables --------------------------------------------------------*/
 
 
@@ -17,7 +15,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: "Segoe", Arial, sans-serif;
 }
 
@@ -30,6 +28,15 @@ header {
     color: var(--secondaryColour);
     padding: 12px 16px;
     border-radius: 0 0 12px 12px;
+}
+
+/* Only make header transparent on homepage  */
+body.homepage header {
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 /* Search bar  */
@@ -59,7 +66,6 @@ header {
     padding: 8px 16px;
     cursor: pointer;
 }
-
 /* End of Search bar */
 
 /* Predictive search results  */
@@ -83,7 +89,6 @@ header {
     border-bottom: none;
     border-radius: 0 0 8px 8px;
 }
-
 /* End of predictive search results   */
 
 /* back button  */
@@ -94,7 +99,6 @@ header {
     border: none;
     color: var(--secondaryColour);
 }
-
 /* End of back button   */
 
 /* Navigation bar  */
@@ -118,21 +122,50 @@ nav a {
     border-radius: 0;
     border: 2px solid transparent;
 }
-
 /* End of Header ------------------------------------------------------------ */
 
-/* Homepage --------------------------------------------------------------------------- */
+
+/* Homepage image ---------------------------------------------------------- */
+/* Hidden by default shown on homepage only  */
+.image {
+    display: none;
+}
+
+/* Show image on homepage with transparent header   */
+body.homepage .image {
+    display: block;
+    width: 100%;
+    height: 225px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+body.homepage .image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+}
+
+body.homepage .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+/* End of homepage image ---------------------------------------------------- */
+
+
+/* Main --------------------------------------------------------------------------- */
 main {
     padding: 16px;
     max-width: 800px;
     margin: 0 auto;
 }
-
-/* Image  */
-.image{
-    display: none;
-}
-
 
 h3 {
     font-size: 1.3rem;
@@ -153,8 +186,7 @@ h3 {
     margin-right: auto;
 }
 
-
-.sectionBox img{
+.sectionBox img {
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -195,9 +227,9 @@ h3 {
     color: var(--blackTextColour);
     font-size: 0.8rem;
 }
-
 /* End of Google Review Button   */
-/* End of Homepage ---------------------------------------------------------- */
+/* End of Main ---------------------------------------------------------- */
+
 
 /* Contact us page ---------------------------------------------------------- */
 /* Contact Details  */
@@ -223,8 +255,8 @@ h3 {
     width: 20px;
     text-align: center;
 }
-
 /* End of contact details  */
+
 /* Contact form  */
 #contactForm {
     display: flex;
@@ -273,7 +305,7 @@ h3 {
     cursor: pointer;
 }
 
-/* Make and Enquiry Button  */
+/* Make an Enquiry Button  */
 .makeAnEquiryBtn {
     padding: 10px 24px;
     text-align: center;
@@ -283,38 +315,37 @@ h3 {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    text-decoration: none; 
+    text-decoration: none;
     display: block;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 /* End of Make Enquiry Button  */
 
 /* Google Maps  */
-
 .googleMaps iframe {
     width: 100%;
     height: 400px;
     border-radius: 8px;
 }
-
 /* End of Google Maps  */
-
 /* End of contact form   */
 /* End of contact us page ------------------------------------------------------- */
+
+
 /* Services page ----------------------------------------------------------  */
-.servicesGrid{
-    display:grid;
-    /* 1 row in the grid  */
-    grid-template-columns: 1fr; 
+.servicesGrid {
+    display: grid;
+    /* 1 column in the grid  */
+    grid-template-columns: 1fr;
     /* Gap between service cards  */
-    gap:16px;
+    gap: 16px;
     margin-top: 16px;
 }
 
 .serviceCard {
     position: relative;
     border-radius: 12px;
-    /* Images match the shape of the servuce card  */
+    /* Images match the shape of the service card  */
     overflow: hidden;
     /* Removes the underline  */
     text-decoration: none;
@@ -341,11 +372,31 @@ h3 {
     font-size: 1rem;
     font-weight: 600;
 }
+
+/* Services teaser on homepage  */
+.servicesTeaser {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+/* View all services button  */
+.viewAllServices {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
 /* End of services page ----------------------------------------------------------   */
+
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
 
 /* Tablet — 768px -------------------------------------------- */
 @media (min-width: 768px) {
- 
+
     /* Header */
     header {
         padding: 14px 32px;
@@ -354,56 +405,57 @@ h3 {
         justify-content: space-between;
         gap: 24px;
     }
- 
+
     /* Search bar sits inline with nav on tablet+ */
     .searchBar {
         width: 320px;
         flex-shrink: 0;
     }
- 
+
     nav {
         margin-top: 0;
     }
- 
+
     nav ul {
         gap: 4px;
     }
- 
+
     nav a {
         border-radius: 4px;
         white-space: nowrap;
     }
- 
+
     nav a:hover {
         border-color: var(--backgroundCoulor);
     }
- 
+
     /* Main */
     main {
         padding: 24px 32px;
         max-width: 100%;
     }
 
-    .image{
-        display: none;
-    }
- 
     /* Service grid — 2 columns */
     .servicesGrid {
         grid-template-columns: 1fr 1fr;
     }
- 
+
+    /* Services teaser — 3 columns */
+    .servicesTeaser {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
     .serviceCard img {
         height: 220px;
     }
- 
+
     /* Reviews — side by side */
     .reviewsGrid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 16px;
     }
- 
+
     /* Contact page — details + form side by side */
     .contactLayout {
         display: grid;
@@ -411,152 +463,121 @@ h3 {
         gap: 32px;
         align-items: start;
     }
- 
+
     #contactForm {
         max-width: 100%;
     }
- 
+
     .formGroup input,
     .formGroup select,
     .formGroup textarea {
         max-width: 100%;
     }
 }
- 
- 
+
+
 /* Desktop — 1024px ------------------------------------------ */
 @media (min-width: 1024px) {
- 
-    /* Header */
 
-    /* Only make header transaprent on homepage  */
-    body.homepage header {
-        background-color: transparent;
-        position:absolute;
-        width: 100%;
-    }
- 
     .searchBar {
         width: 400px;
     }
- 
+
     nav a {
         padding: 10px 20px;
         font-size: 1rem;
     }
- 
+
     /* Main */
     main {
         padding: 32px 48px;
         max-width: 100%;
     }
 
-    /* Homepage Image  */
-
-    .image{
-        display:block;
-        width:100%;
+    /* Homepage image — taller on desktop */
+    body.homepage .image {
         height: 500px;
-        overflow: hidden;
-        margin-top: 0%;
-        border-radius: 10px;
-        position: relative;
-
-    }
-    .image::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
-
     }
 
-    .image img{
-        width:100%;
-        height:100%;
-        object-fit: cover;
-        object-position: center;
-    }
-
- 
     h3 {
         font-size: 1.5rem;
     }
- 
+
     /* Section boxes get a touch more breathing room */
     .sectionBox {
         padding: 24px;
     }
- 
+
     /* Service grid — 3 columns */
     .servicesGrid {
         grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;
     }
- 
+
     .serviceCard img {
         height: 240px;
     }
- 
+
+    .serviceCard {
+        transition: transform 0.2s ease;
+    }
+
+    .serviceCard:hover {
+        transform: scale(1.03);
+    }
+
     .serviceLabel {
         font-size: 1.05rem;
         padding: 14px 18px;
     }
- 
+
     /* Reviews — up to 3 columns */
     .reviewsGrid {
         grid-template-columns: repeat(3, 1fr);
     }
- 
-    /* Make Enquiry button — left-aligned on desktop, not centred */
-    .makeAnEquiryBtn {
-        margin: 0;
-        display: inline-block;
-    }
 
+
+    /* Centre last card if it sits alone on a row */
     .serviceCard:last-child:nth-child(3n + 1) {
-    grid-column: 2;
+        grid-column: 2;
     }
 
+    /* View all services button  */
     .viewAllServices {
-    display: flex;
-    justify-content: center;
-    margin-top: 16px;
-}
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+    }
 }
 
 
- 
- 
 /* Wide / Large desktop — 1280px ----------------------------- */
 @media (min-width: 1280px) {
- 
+
     header {
         padding: 18px 80px;
     }
- 
+
     .searchBar {
         width: 480px;
     }
- 
+
     main {
         padding: 40px 80px;
         max-width: 100%;
     }
- 
+
     .servicesGrid {
         grid-template-columns: repeat(3, 1fr);
     }
- 
+
     .serviceCard img {
         height: 260px;
     }
 
+
+    /* Centre last card if it sits alone on a row */
     .serviceCard:last-child:nth-child(3n + 1) {
-    grid-column: 2;
+        grid-column: 2;
+    }
 }
-}
- 

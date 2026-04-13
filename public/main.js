@@ -28,6 +28,8 @@ fetch(headerPath)
         document.title = pageTitle + " | CR & SJ Bearup LTD";
         document.querySelector("#subtitle").textContent = pageSubtitle;
 
+        
+
         // If in the services folder, point back to the root folder
         if (isSub) {
             // Find each link in the new nav if in services folder

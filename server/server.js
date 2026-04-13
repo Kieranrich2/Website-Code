@@ -15,8 +15,8 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, "../.env") });
 
 // This tells Express how to find the public folder
-app.use(express.static(path.join(__dirname, "../public"), { extensions: ["html"] }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "../public"), { extensions: ["html"] }));
 
 // Fetch Google Reviews 
 

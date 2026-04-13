@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 export const sendContactFormEmail = async (req, res) => {
     const { email, service, message, subService } = req.body;
     // Check all fields are provided
-    if (!email || !service || !message || !subService) {
+    if (!email || !service || !message ) {
         return res.status(400).json({ error: "All fields are required." });
     }
 

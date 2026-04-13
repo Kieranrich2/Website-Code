@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Send the data to the /sendEmail route in server.js
         try {
+            console.log("Submitting form data:", formData); // Debug log to check form data
             const response = await fetch("/sendEmail", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" }, // Tell the server A JSON object is being sent
