@@ -12,14 +12,14 @@ fetch(headerPath)
         document.querySelector("#headerPlaceholder").innerHTML = data;
 
         // Call search bar after the header has loaded
-        if(typeof initSearchBar === "function"){ 
+        if (typeof initSearchBar === "function") {
             initSearchBar();
         }
 
         // Back Button 
         // Hide if on homepage 
-        if (window.location.pathname.includes("homepage.html")){
-            document.querySelector("#backBtn").style.display="none";
+        if (window.location.pathname.includes("homepage.html")) {
+            document.querySelector("#backBtn").style.display = "none";
         }
 
         // Get the correct title and subtitle from the current page
@@ -28,7 +28,7 @@ fetch(headerPath)
         document.title = pageTitle + " | CR & SJ Bearup LTD";
         document.querySelector("#subtitle").textContent = pageSubtitle;
 
-        
+
 
         // If in the services folder, point back to the root folder
         if (isSub) {
@@ -39,9 +39,36 @@ fetch(headerPath)
                 link.setAttribute("href", "../" + currentHref);
             });
         }
+        // Load cookie banner 
+        fetch("cookieBanner.html")
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector("#cookieBannerPlaceholder").innerHTML = data;
+                // initize the cookier banner after it has loaded
+                if (typeof initCookieBanner === "function") {
+                    initCookieBanner();
+                }
+            })
+            .catch(error => console.error("Error loading cookie banner:", error));
+
+        // End of load cookie banner 
     })
     .catch(error => console.error("Error loading header:", error));
 
 // End of fetch header.html file
+
+// // Load cookie banner 
+// fetch("cookieBanner.html")
+//     .then(response => response.text())
+//     .then(data => {
+//         document.querySelector("#cookieBannerPlaceholder").innerHTML = data;
+//         // initize the cookier banner after it has loaded
+//         if (typeof initCookieBanner === "function") {
+//             initCookieBanner();
+//         }
+//     })
+//     .catch(error => console.error("Error loading cookie banner:", error));
+
+// // End of load cookie banner 
 
 

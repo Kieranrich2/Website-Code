@@ -1,33 +1,36 @@
 <!DOCTYPE html>
+
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <header>
+    <!-- Cookie Banner Placeholder -->
+    <div id="cookieBannerPlaceholder"></div>
+    <!-- End of Cookie Banner Placeholder -->
+     
     <!-- Back button -->
-        <button onclick="history.back()" class="backBtn" id="backBtn">
-            <i class="fa-solid fa-arrow-left"></i> 
-        </button>
-        <!-- End of back button  -->
+    <button onclick="history.back()" class="backBtn" id="backBtn">
+        <i class="fa-solid fa-arrow-left"></i>
+    </button>
+    <!-- End of back button  -->
 
-        <h2 id="subtitle"></h2>
-        <!-- Search Bar -->
-         <section class="searchBar">
-            <div class="row">
-                <input type="text" id="searchText" placeholder="Search"
-                autocomplete="off">
-                <button onclick="selectOption({textContent: document.querySelector('#searchText').value})">Search</button>
-            </div>
-            <div class="predictiveResults">
+    <h2 id="subtitle"></h2>
+    <!-- Search Bar -->
+    <section class="searchBar">
+        <div class="row">
+            <input type="text" id="searchText" placeholder="Search" autocomplete="off">
+            <button onclick="selectOption({textContent: document.querySelector('#searchText').value})">Search</button>
+        </div>
+        <div class="predictiveResults">
 
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <nav>
-            <ul>
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contactUs.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-    
+    <nav>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>

@@ -1,5 +1,5 @@
 async function initReviews() {
-    const container = document.querySelector("#reviewsContainer");
+    const container = document.querySelector("#googleReviewsContainer");
     // Fetch reviews from google
     try {
         const response = await fetch('/api/reviews'); // Requests data from sever.js
@@ -30,4 +30,3 @@ async function initReviews() {
     }
 }
 
-initReviews();

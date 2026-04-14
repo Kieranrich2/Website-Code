@@ -27,6 +27,7 @@
                 <p><i class="fa-solid fa-phone"></i>07973977962</p>
                 <p><i class="fa-solid fa-envelope"></i>crandsjbearupltd@hotmail.co.uk</p>
                 <p><i class="fa-solid fa-location-dot"></i>Little Place Farm Yaugher Lane, Hartlip, Sittingbourne, Kent, ME9 7XE</p>
+                <p><i class="fa-brands fa-facebook"></i><a href="https://www.facebook.com/profile.php?id=100054453941025&locale=en_GB" target="_blank">Find us on Facebook</a></p>
             </div>
         </section>
         <!-- Contact Form -->
@@ -57,7 +58,7 @@
                 </div>
 
                 <!-- Second drop down Options depending on first selection -->
-                 <!-- Options pulled from serviceMap in contactFormFrountend.js -->
+                <!-- Options pulled from serviceMap in contactFormFrountend.js -->
                 <div id="subServiceGroup" class="formGroup" style="display: none;">
                     <label for="subService">Specific Service:</label>
                     <select id="subService">
@@ -78,17 +79,14 @@
 
         <!-- End of Contact Form -->
         <!-- Embedded Google Map  -->
+        <!-- Replace your existing iframe with this -->
         <section class="sectionBox">
-            <h3>Where to Find Us:</h3>
-            <p></p>
+            <h3>Find Us Here:</h3>
             <section class="googleMaps">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70890.41191513698!2d0.5555767655122363!3d51.341132767061026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df2de0ef7c9e61%3A0x531a416cf369610e!2sLittle%20Place%20Farm!5e0!3m2!1sen!2suk!4v1770050837514!5m2!1sen!2suk"
-                    style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <section id="googleMapsContainer"></section>
             </section>
         </section>
-        <!-- End of Embedded Google Map  -->
+        <!-- End of Embedded Google Maps -->
     </main>
     <!-- JavaScript Link -->
     <script src="main.js"></script>
@@ -101,4 +99,11 @@
     <!-- Search Bar JavaScript -->
     <script src="searchBar.js"></script>
     <!-- End of Search Bar JavaScript -->
+
+    <!-- Cookie Banner JavaScript -->
+    <script src="cookieBanner.js"></script>
+    <!-- End of Cookie Banner JavaScript -->
+
 </body>
+
+</html>
