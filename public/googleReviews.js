@@ -10,7 +10,7 @@ async function initReviews() {
             // Limit to 5 reviews 
             data.reviews.slice(0, 5).forEach(review => {
                 const rating = review.rating || 0; // Gets the rating, 0 if not available
-                const starRating = "★".repeat(rating) + "☆".repeat(5 - rating); // Transfers number rating into stars
+                const starRating = "★".repeat(rating) + "☆".repeat(5 - rating); // Cahnge number rating into stars
                 const reviewDiv = document.createElement("div"); // Creates a new div for each review
                 reviewDiv.classList.add("review");
                 reviewDiv.innerHTML = ` 

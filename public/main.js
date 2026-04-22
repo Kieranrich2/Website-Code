@@ -40,7 +40,7 @@ fetch(headerPath)
             });
         }
         // Load cookie banner 
-        fetch("cookieBanner.html")
+        fetch("/cookieBanner.html")
             .then(response => response.text())
             .then(data => {
                 document.querySelector("#cookieBannerPlaceholder").innerHTML = data;
@@ -57,18 +57,12 @@ fetch(headerPath)
 
 // End of fetch header.html file
 
-// // Load cookie banner 
-// fetch("cookieBanner.html")
-//     .then(response => response.text())
-//     .then(data => {
-//         document.querySelector("#cookieBannerPlaceholder").innerHTML = data;
-//         // initize the cookier banner after it has loaded
-//         if (typeof initCookieBanner === "function") {
-//             initCookieBanner();
-//         }
-//     })
-//     .catch(error => console.error("Error loading cookie banner:", error));
-
-// // End of load cookie banner 
+// Set Tab Image (Favicon)
+const favicon = document.createElement("link");
+favicon.rel = "icon";
+favicon.type = "image/x-icon";
+favicon.href = "/favicon.ico";
+document.head.appendChild(favicon);
+// End if Set Tab Image (Favicon)
 
 

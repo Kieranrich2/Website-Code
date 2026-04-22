@@ -20,6 +20,12 @@ body {
     font-family: "Segoe", Arial, sans-serif;
 }
 
+/* Site logo ---------------------------------------------------------- */
+#siteLogo {
+    display: none;
+}
+/* End of Site logo --------------------------------------------------- */
+
 /* header -------------------------------------------------------------- */
 header {
     background-color: var(--backgroundCoulor);
@@ -506,22 +512,50 @@ h3 {
 /* Tablet — 768px -------------------------------------------- */
 @media (min-width: 768px) {
 
-    /* Header */
+    /* Header — two row layout */
     header {
         padding: 14px 32px;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        justify-content: space-between;
-        gap: 24px;
+        column-gap: 16px;
+        row-gap: 8px;
     }
 
-    /* Search bar sits inline with nav on tablet+ */
+    /* Cookie banner placeholder must not take flex space */
+    #cookieBannerPlaceholder {
+        display: contents;
+    }
+
+    /* Row 1: subtitle spans full width */
+    #subtitle {
+        order: 1;
+        flex: 0 0 100%;
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    /* Row 2: back button */
+    #backBtn {
+        order: 2;
+        flex: 0 0 auto;
+        font-size: 1.25rem;
+        margin-top: 0;
+    }
+
+    /* Row 2: search bar grows to fill available space */
     .searchBar {
-        width: 320px;
-        flex-shrink: 0;
+        order: 3;
+        flex: 1 1 auto;
+        width: auto;
+        max-width: 320px;
     }
 
+    /* Row 2: nav */
     nav {
+        order: 4;
+        flex: 0 0 auto;
         margin-top: 0;
     }
 
@@ -571,21 +605,6 @@ h3 {
         height: 220px;
     }
 
-    /* Reviews — side by side */
-    .reviewsGrid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-    }
-
-    /* Contact page — details + form side by side */
-    .contactLayout {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-        align-items: start;
-    }
-
     #contactForm {
         max-width: 100%;
     }
@@ -601,8 +620,41 @@ h3 {
 /* Desktop — 1024px ------------------------------------------ */
 @media (min-width: 1024px) {
 
+    /* Reset header to single row */
+    header {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    #siteLogo {
+        display: block;
+        height: 160px;
+        width: auto;
+        flex: 0 0 auto;
+        align-self: center;
+        order: -1;
+        margin-right: auto;
+    }
+
+    #subtitle {
+        display: none;
+    }
+
+    #backBtn {
+        order: 0;
+        flex: 0 0 auto;
+    }
+
     .searchBar {
+        order: 0;
+        flex: 0 0 400px;
         width: 400px;
+        max-width: none;
+    }
+
+    nav {
+        order: 0;
     }
 
     nav a {
@@ -651,11 +703,6 @@ h3 {
     .serviceLabel {
         font-size: 1.05rem;
         padding: 14px 18px;
-    }
-
-    /* Reviews — up to 3 columns */
-    .reviewsGrid {
-        grid-template-columns: repeat(3, 1fr);
     }
 
 
