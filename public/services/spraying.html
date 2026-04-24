@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 
-<!-- Preset header title and subtitle for Services page -->
-<body data-title="Spraying" data-subtitle="Our Spraying Services" data-servicesNav="services/servicesPageNav.html">
+<!-- Preset title and subtitle for Services page -->
+<body data-title="Spraying" data-subtitle="Our Spraying Services:" data-servicesNav="services/servicesPageNav.html">
 <!-- End of preset title and subtitle for Services page  -->
 
 <!-- Placeholder for the header  -->
@@ -17,20 +17,20 @@
 <!-- End of placeholder for the header  -->
 
 <main>
-    <h3>Our Options:</h3>
-
+    <section id="equipmentGrid"></section>
+    <section class="sectionBox">
+            <a href="../contactUs.html" class="makeAnEquiryBtn">Make an Enquiry</a>
+        </section>
 </main>
 
-<div class = "servicesGrid">
-    <a href="grasslandSpraying.html" class="serviceCard">
-        <img src="../images/spraying.jpg" alt="grassland spraying">
-        <span class ="serviceLabel">Grassland Spraying</span>
-    </a>
-    <a href="cropSpraying.html" class="serviceCard">
-        <img src="../images/placeholder.jpg" alt="crop spraying">
-        <span class ="serviceLabel">Crop Spraying</span>
-    </a>
-</div>
+<!-- load Templates  -->
+<script src="loadTemplates.js"></script>
+<script>
+    (async () => {
+        await loadTemplates(["grasslandSpraying"], "equipmentGrid", "pastureMaintinanceTemplates.html");
+    })();
+</script>
+<!-- end of loading templates  -->
 
 <!-- JavaScript Link -->
 <script src="../main.js"></script>
@@ -43,7 +43,5 @@
 <!-- Cookie Banner JavaScript -->
 <script src="cookieBanner.js"></script>
 <!-- End of Cookie Banner JavaScript -->
-
 </body>
 </html>
-

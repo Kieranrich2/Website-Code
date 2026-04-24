@@ -620,41 +620,53 @@ h3 {
 /* Desktop — 1024px ------------------------------------------ */
 @media (min-width: 1024px) {
 
-    /* Reset header to single row */
+    /* Desktop header: two rows — controls top, subtitle bottom */
     header {
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        gap: 24px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0;
+        column-gap: 16px;
+        row-gap: 8px;
     }
 
     #siteLogo {
         display: block;
-        height: 160px;
+        height: 60px;
         width: auto;
         flex: 0 0 auto;
         align-self: center;
-        order: -1;
-        margin-right: auto;
-    }
-
-    #subtitle {
-        display: none;
+        order: 1;
     }
 
     #backBtn {
-        order: 0;
+        order: 2;
         flex: 0 0 auto;
+        align-self: center;
     }
 
     .searchBar {
-        order: 0;
-        flex: 0 0 400px;
-        width: 400px;
-        max-width: none;
+        order: 3;
+        flex: 1 1 auto;
+        width: auto;
+        max-width: 400px;
     }
 
     nav {
-        order: 0;
+        order: 4;
+        flex: 0 0 auto;
+        margin-left: auto;
+    }
+
+    /* Full-width subtitle row below controls */
+    #subtitle {
+        display: block;
+        order: 5;
+        flex: 0 0 100%;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: 4px 0 0 0;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255,255,255,0.3);
     }
 
     nav a {
