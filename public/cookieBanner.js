@@ -53,6 +53,7 @@ function loadGoogleMaps() {
             <section class="googleMaps">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70890.41191513698!2d0.5555767655122363!3d51.341132767061026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df2de0ef7c9e61%3A0x531a416cf369610e!2sLittle%20Place%20Farm!5e0!3m2!1sen!2suk!4v1770050837514!5m2!1sen!2suk"
+                    title="CR & SJ Bearup Ltd Location On Google Maps"
                     style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </section>
