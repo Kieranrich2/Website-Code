@@ -36,13 +36,13 @@
             <form id="contactForm">
                 <div class="formGroup">
                     <!-- User enters Email Address -->
-                    <label for="email">Email Address:</label>
+                    <label for="email">Email Address: <span class="required">*</span></label>
                     <!-- Email address format validation  -->
                     <input type="email" id="email" required placeholder="Please enter your email address">
                 </div>
 
                 <div class="formGroup">
-                    <label for="service">Which service would you like to enquire about?</label>
+                    <label for="service">Which service would you like to enquire about? <span class="required">*</span></label>
                     <select id="service" required>
                         <!-- First drop down Options -->
                         <option value="" disabled selected>Select a Service...</option>
@@ -66,7 +66,7 @@
                 </div>
                 <!-- User enters message -->
                 <div class="formGroup">
-                    <label for="message">Message:</label>
+                    <label for="message">Message: <span class="required">*</span></label>
                     <textarea id="message" required placeholder="What can we help you with?"></textarea>
                 </div>
 

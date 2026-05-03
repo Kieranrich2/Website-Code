@@ -4,7 +4,7 @@
     --secondaryColour: #f5f5f5;
     --blackTextColour: #000000;
     --lightGray: #f5f5f5;
-    --white: #ffffff;
+    --white: #ffffff; 
 }
 
 /* End of Variables --------------------------------------------------------*/
@@ -378,6 +378,11 @@ h3 {
     max-width: 500px;
 }
 
+.required {
+    color: var(--backgroundCoulor);
+    font-size: 1.2em;
+}
+
 .formGroup {
     display: flex;
     flex-direction: column;
@@ -503,11 +508,6 @@ h3 {
 }
 
 /* End of services page ----------------------------------------------------------   */
-
-
-/* ============================================================
-   RESPONSIVE BREAKPOINTS
-   ============================================================ */
 
 /* Tablet — 768px -------------------------------------------- */
 @media (min-width: 768px) {
