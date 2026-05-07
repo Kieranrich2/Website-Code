@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en">
+
 <head>
     <title>Loading...</title>
     <meta charset="UTF-8">
@@ -9,41 +10,43 @@
 </head>
 
 <!-- Preset title and subtitle for Services page -->
-<body data-title="Hay Making" data-subtitle="Our Hay Making Services" data-servicesNav="services/servicesPageNav.html">
-<!-- End of preset title and subtitle for Services page  -->
 
-<!-- Placeholder for the header  -->
-<div id="headerPlaceholder"></div>
-<!-- End of placeholder for the header  -->
+<body data-title="Hay Making" data-subtitle="Our Hay Making Services">
+    <!-- End of preset title and subtitle for Services page  -->
 
-<main>
-    <h3>Hay Making</h3>
-    <section id="equipmentGrid"></section>
-    <section class="sectionBox">
+    <!-- Placeholder for the header  -->
+    <div id="headerPlaceholder"></div>
+    <!-- End of placeholder for the header  -->
+
+    <main>
+        <h3>Hay Making</h3>
+        <section id="equipmentGrid"></section>
+        <section class="sectionBox">
             <a href="../contactUs.html" class="makeAnEquiryBtn">Make an Enquiry</a>
         </section>
 
-</main>
-<!-- JavaScript Link -->
-<script src="../main.js"></script>
-<!-- End of JavaScript Link -->
+    </main>
+    <!-- JavaScript Link -->
+    <script src="../main.js"></script>
+    <!-- End of JavaScript Link -->
 
-<!-- Search Bar JavaScript -->
-<script src="../searchBar.js"></script>
-<!-- End of Search Bar JavaScript -->
+    <!-- Search Bar JavaScript -->
+    <script src="../searchBar.js"></script>
+    <!-- End of Search Bar JavaScript -->
 
-<!-- Load templates  -->
-<script src="loadTemplates.js"></script>
-<script>
-    (async () => {
-        await loadTemplates(["mowers", "turner", "rake", "bailers", "carting"], "equipmentGrid", "hayMakingAndBailingEquipmentTemplates.html");
-    })();
-</script>
-<!-- End of loading templates -->
+    <!-- Load templates  -->
+    <script src="loadTemplates.js"></script>
+    <script>
+        (async () => {
+            await loadTemplates(["mowers", "turner", "rake", "bailers", "carting"], "equipmentGrid", "hayMakingAndBailingEquipmentTemplates.html");
+        })();
+    </script>
+    <!-- End of loading templates -->
 
-<!-- Cookie Banner JavaScript -->
-<script src="cookieBanner.js"></script>
-<!-- End of Cookie Banner JavaScript -->
+    <!-- Cookie Banner JavaScript -->
+    <script src="cookieBanner.js"></script>
+    <!-- End of Cookie Banner JavaScript -->
 
 </body>
+
 </html>

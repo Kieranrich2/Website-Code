@@ -47,6 +47,12 @@ body.homepage header {
 }
 
 /* Search bar  */
+.predictiveResults li.highlighted {
+    color: var(--backgroundCoulor);
+    cursor: pointer;
+    font-weight: 800;
+}
+
 .searchBar {
     width: 100%;
     position: relative;
@@ -98,6 +104,13 @@ body.homepage header {
     border-radius: 0 0 8px 8px;
 }
 
+.predictiveResults {
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    width: 100%;
+    top: 100%;
+}
 /* End of predictive search results   */
 
 /* back button  */
@@ -438,6 +451,7 @@ h3 {
 }
 
 /* End of Make Enquiry Button  */
+/* End of contact form   */
 
 /* Google Maps  */
 .googleMaps iframe {
@@ -447,7 +461,6 @@ h3 {
 }
 
 /* End of Google Maps  */
-/* End of contact form   */
 /* End of contact us page ------------------------------------------------------- */
 
 
@@ -596,7 +609,7 @@ h3 {
         grid-template-columns: 1fr 1fr;
     }
 
-    /* Services teaser — 3 columns */
+    /* Services Homepage — 3 columns */
     .servicesTeaser {
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -689,7 +702,7 @@ h3 {
         font-size: 1.5rem;
     }
 
-    /* Section boxes get a touch more breathing room */
+    /* Section boxes more space */
     .sectionBox {
         padding: 24px;
     }

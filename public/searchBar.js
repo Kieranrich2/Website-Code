@@ -1,3 +1,4 @@
+
 // Options 
 const predictiveSearchOptions = [
     "Home",
@@ -48,28 +49,51 @@ function initSearchBar() {
     // Check the header is loaded
     if (!searchText) return;
 
+    let currentSelection = -1; // Highlighted search option 
     // Filter key words between user input and options 
-    searchText.onkeyup = function () {
+    searchText.onkeyup = function (e) {
+        if (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Enter") return;
+        currentSelection = -1;
         let result = [];
         let input = searchText.value;
         if (input.length) { // Checks the input field isnt empty
             result = predictiveSearchOptions.filter((keyword) => {
                 return keyword.toLowerCase().includes(input.toLowerCase());
             })
-            .slice(0, 5); // Only show 5 options
+                .slice(0, 5); // Only show 5 options
         }
         displayResults(result);
     };
 
-    // Search on enter key
+    // Search on enter key and navigate with arrows
     searchText.onkeydown = function (e) {
-        if (e.key === "Enter") {
-            const firstOption = document.querySelector(".predictiveResults li");
-            if (firstOption) {
-                selectOption(firstOption);
+        const items = document.querySelectorAll(".predictiveResults li");
+
+        // Arrow down 
+        if (e.key === "ArrowDown") {
+            e.preventDefault();
+            currentSelection = Math.min(currentSelection + 1, items.length - 1);
+            items.forEach(item => item.classList.remove("highlighted"));
+            if (items[currentSelection]) {
+                items[currentSelection].classList.add("highlighted");
+            }
+            // Arrow up
+        } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            currentSelection = Math.max(currentSelection - 1, -1);
+            items.forEach(item => item.classList.remove("highlighted"));
+            if (items[currentSelection]) {
+                items[currentSelection].classList.add("highlighted");
+            }
+            // Enter selects the option
+        } else if (e.key === "Enter") {
+            const highlighted = document.querySelector(".predictiveResults li.highlighted");
+            const selected = highlighted || document.querySelector(".predictiveResults li");
+            if (selected) {
+                selectOption(selected);
             }
         }
-    }
+    };
 
     // hide options if somewhere else is clicked
     document.addEventListener("click", (e) => {
@@ -101,7 +125,7 @@ function displayResults(result) {
 function selectOption(list) {
     const searchText = document.querySelector("#searchText");
     const predictiveResults = document.querySelector(".predictiveResults");
-    
+
     // Gets the selected option 
     const selectedOption = list.textContent || list.value || "";
     if (!selectedOption) return;
@@ -109,7 +133,7 @@ function selectOption(list) {
     if (searchText) searchText.value = selectedOption;
     // Removes the drop down list from the screen
     if (predictiveResults) predictiveResults.innerHTML = "";
-    
+
     // Directs users to there desired page
     if (selectedOption === "Home") {
         window.location.href = "/homepage.html";
