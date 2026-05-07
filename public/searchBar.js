@@ -22,8 +22,6 @@ const predictiveSearchOptions = [
     "Ripping",
     "Seeding",
     "Spraying",
-    "Grassland Spraying",
-    "Crop Spraying",
     "Flail Mowing",
     "Fertilizing",
     "Flat Rolling",
