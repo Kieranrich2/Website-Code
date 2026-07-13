@@ -36,7 +36,7 @@ const predictiveSearchOptions = [
     "Fencing",
     "Water Pipe Installation",
     "Footings",
-    "Ground Leveling",
+    "Ground Levelling",
     "Bin Pads",
     "Farm Accses Tracks",
 ];
@@ -47,8 +47,23 @@ function initSearchBar() {
     // Check the header is loaded
     if (!searchText) return;
 
-    let currentSelection = -1; // Highlighted search option 
-    // Filter key words between user input and options 
+    // Search button click
+    const searchBtn = document.querySelector("#searchBtn");
+    if (searchBtn) {
+        searchBtn.addEventListener("click", () => selectOption({ textContent: searchText.value }));
+    }
+
+    // Event delegation for predictive result clicks
+    const predictiveResultsDiv = document.querySelector(".predictiveResults");
+    if (predictiveResultsDiv) {
+        predictiveResultsDiv.addEventListener("click", (e) => {
+            const li = e.target.closest("li");
+            if (li) selectOption(li);
+        });
+    }
+
+    let currentSelection = -1; // Highlighted search option
+    // Filter key words between user input and options
     searchText.onkeyup = function (e) {
         if (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Enter") return;
         currentSelection = -1;
@@ -115,7 +130,7 @@ function displayResults(result) {
 
     // Make results/options clickable
     const content = result.map((list) => {
-        return `<li onclick="selectOption(this)">${list}</li>`;
+        return `<li>${list}</li>`;
     });
     predictiveResults.innerHTML = `<ul> ${content.join("")}</ul>`;
 }

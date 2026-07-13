@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -9,7 +9,7 @@
     <!-- End of Cookie Banner Placeholder -->
      
     <!-- Back button -->
-    <button onclick="history.back()" class="backBtn" id="backBtn" aria-label="Go back to previous page">
+    <button class="backBtn" id="backBtn" aria-label="Go back to previous page">
         <i class="fa-solid fa-arrow-left"></i>
     </button>
     <!-- End of back button  -->
@@ -19,7 +19,7 @@
     <section class="searchBar">
         <div class="row">
             <input type="text" id="searchText" placeholder="Search" autocomplete="off">
-            <button onclick="selectOption({textContent: document.querySelector('#searchText').value})">Search</button>
+            <button id="searchBtn">Search</button>
         </div>
         <div class="predictiveResults">
 
@@ -34,7 +34,7 @@
         </ul>
     </nav>
     <!-- Company Logo -->
-    <img src="/images/logo.png" id="siteLogo" alt="CR & SJ Bearup Ltd">
+    <img loading="lazy" src="/images/logo.png" id="siteLogo" alt="CR & SJ Bearup Ltd">
     <!-- End of Company Logo -->
 
     <!-- Tab image  -->

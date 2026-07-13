@@ -1,11 +1,12 @@
 import express from "express";
+import helmet from "helmet";
 import path from "path";
 import { fileURLToPath } from "url";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
 
 const app = express();
-const PORT = 5000; 
+const PORT = process.env.PORT || 5000;
 
 // Setup for ES Modules to find the current directory
 const __filename = fileURLToPath(import.meta.url);
@@ -15,6 +16,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, "../.env") });
 
 // This tells Express how to find the public folder
+app.use(helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public"), { extensions: ["html"] }));
 

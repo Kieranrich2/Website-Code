@@ -15,9 +15,6 @@ export const sendContactFormEmail = async (req, res) => {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
         },
-        tls: {
-            ciphers: "SSLv3",     // Secure connection
-        }
     });
 
     // Email layout and details

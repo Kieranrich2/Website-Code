@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Pasture Maintenance": [
             "Spraying",
             "Flail Mowing",
-            "Fertilizing",
+            "Fertilising",
             "Flat Rolling"
         ],
         "Forage Sales": [
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Additional options for Groundworks
-    const groundworksSubServices = ["Fenceing", "Water Pipe Installation", "Footings", "Ground Leveling", "Bin Pads", "Farm Access Tracks"];
+    const groundworksSubServices = ["Fencing", "Water Pipe Installation", "Footings", "Ground Levelling", "Bin Pads", "Farm Access Tracks"];
     
 
     // Show 2nd Options based on service selection
@@ -107,13 +107,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const formData = {
             email: document.querySelector("#email").value,
             service: serviceSelect.value,
-            subService: subServiceSelect.value, 
+            subService: subServiceSelect.value,
             message: document.querySelector("#message").value
+        };
+
+        const setStatus = (text) => {
+            const p = document.createElement("p");
+            p.textContent = text;
+            status.replaceChildren(p);
         };
 
             // Send the data to the /sendEmail route in server.js
         try {
-            console.log("Submitting form data:", formData); // Debug log to check form data
             const response = await fetch("/sendEmail", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" }, // Tell the server A JSON object is being sent
@@ -123,17 +128,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const result = await response.json();
 
             if (response.ok) {
-                // Confirmation message to the user
-                status.innerHTML = `<p>${result.message}</p>`;
+                setStatus(result.message);
                 contactForm.reset(); // Clear the email contact form
                 subServiceGroup.style.display = "none"; // Hide the 2nd dropdown
             } else {
-                // Email failed to send show user error message
-                status.innerHTML = `<p>${result.error || 'Error'}</p>`;
+                setStatus(result.error || "Error");
             }
         } catch (error) {
             console.error("Error submitting form:", error);
-            status.innerHTML = `<p>Could not connect to server.</p>`;
+            setStatus("Could not connect to server.");
         } finally {
             // Enable the submit button again and reset text
             submitBtn.disabled = false;

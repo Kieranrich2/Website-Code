@@ -16,11 +16,12 @@ fetch(headerPath)
             initSearchBar();
         }
 
-        // Back Button 
-        // Hide if on homepage 
+        // Back Button
+        // Hide if on homepage
         if (window.location.pathname.includes("homepage.html")) {
             document.querySelector("#backBtn").style.display = "none";
         }
+        document.querySelector("#backBtn").addEventListener("click", () => history.back());
 
         // Get the correct title and subtitle from the current page
         const pageTitle = document.body.getAttribute("data-title");

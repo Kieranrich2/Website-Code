@@ -522,6 +522,100 @@ h3 {
 
 /* End of services page ----------------------------------------------------------   */
 
+/* Mobile only — max 767px ----------------------------------- */
+@media (max-width: 767px) {
+
+    /* Header flex layout on mobile */
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .backBtn {
+        order: 1;
+        flex: 0 0 auto;
+        margin-top: 0;
+    }
+
+    /* Subtitle — same row as back button, single line */
+    #subtitle {
+        order: 2;
+        flex: 1 1 auto;
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .searchBar {
+        order: 3;
+        flex: 0 0 100%;
+    }
+
+    nav {
+        order: 4;
+        flex: 0 0 100%;
+        margin-top: 4px;
+    }
+
+    /* Smaller search bar and nav on mobile */
+    #searchText {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .searchBar button {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    nav a {
+        padding: 5px 10px;
+        font-size: 0.85rem;
+    }
+
+    /* Homepage mobile header layout */
+    body.homepage #subtitle {
+        display: none;
+    }
+
+    body.homepage #siteLogo {
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 16px;
+        height: 85px;
+        width: auto;
+    }
+
+    body.homepage .searchBar {
+        margin-top: 135px;
+    }
+
+    body.homepage nav {
+        margin-top: 6px;
+    }
+
+    body.homepage nav a {
+        padding: 5px 10px;
+        font-size: 0.85rem;
+    }
+
+    body.homepage #searchText {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    body.homepage .searchBar button {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
 /* Tablet — 768px -------------------------------------------- */
 @media (min-width: 768px) {
 
