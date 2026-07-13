@@ -18,7 +18,7 @@ fetch(headerPath)
 
         // Back Button
         // Hide if on homepage
-        if (window.location.pathname.includes("homepage.html")) {
+        if (window.location.pathname === "/" || window.location.pathname.includes("homepage")) {
             document.querySelector("#backBtn").style.display = "none";
         }
         document.querySelector("#backBtn").addEventListener("click", () => history.back());

@@ -62,7 +62,7 @@ app.post("/sendEmail", contactFormLimiter, async (req, res) => {
 // End of Email Contact Form
 
 app.get("/", (req, res) => {
-    res.redirect("/homepage.html");
+    res.sendFile(path.join(__dirname, "../public/homepage.html"));
 });
 
 app.listen(PORT, () => {
