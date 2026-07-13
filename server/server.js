@@ -18,6 +18,12 @@ dotenv.config({ path: path.join(__dirname, "../.env") });
 // This tells Express how to find the public folder
 app.use(helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false }));
 app.use(express.json());
+
+// Must be before express.static to prevent /services directory redirect
+app.get("/services", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/services.html"));
+});
+
 app.use(express.static(path.join(__dirname, "../public"), { extensions: ["html"] }));
 
 // Fetch Google Reviews 
@@ -63,10 +69,6 @@ app.post("/sendEmail", contactFormLimiter, async (req, res) => {
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/homepage.html"));
-});
-
-app.get("/services", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/services.html"));
 });
 
 app.listen(PORT, () => {
