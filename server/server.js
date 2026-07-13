@@ -65,6 +65,10 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/homepage.html"));
 });
 
+app.get("/services", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/services.html"));
+});
+
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
