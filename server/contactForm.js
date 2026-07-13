@@ -9,9 +9,10 @@ export const sendContactFormEmail = async (req, res) => {
 
     // Connection to the email provider
     const transporter = nodemailer.createTransport({
-        service: "gmail",
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
         auth: {
-            // Retrive from .env file
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
         },
