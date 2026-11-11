@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import { sendEnquiryEmail } from "./emailService.js";
 
 export const sendContactFormEmail = async (req, res) => {
     const { email, service, message, subService } = req.body;
@@ -7,28 +7,16 @@ export const sendContactFormEmail = async (req, res) => {
         return res.status(400).json({ error: "All fields are required." });
     }
 
-    // Connection to the email provider
-    const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
-        secure: false,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
-        },
-    });
-
-    // Email layout and details
-    const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER,
-        subject: `New service enquiry: ${service} - ${subService}`,
-        text: `Email: ${email}\nService: ${service} - ${subService}\nMessage: ${message}`,
-    };
-
     // Send the email
     try {
-        await transporter.sendMail(mailOptions);
+        await sendEnquiryEmail({
+            apiKey: process.env.RESEND_API_KEY,
+            to: process.env.EMAIL_TO,
+            email,
+            service,
+            subService,
+            message,
+        });
         res.status(200).json({ message: "Enquiry sent successfully." });
     } catch (error) {
         console.error("Error sending email:", error);

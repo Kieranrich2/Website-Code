@@ -1,13 +1,9 @@
 import { expect, test, vi } from "vitest";
 import request from "supertest";
 
-// Fake nodemailer for testing
-vi.mock("nodemailer", () => ({
-    default: {
-        createTransport: () => ({
-            sendMail: vi.fn().mockResolvedValue({ messageId: "fake-id" })
-        })
-    }
+// Fake email service for testing
+vi.mock("../server/emailService.js", () => ({
+    sendEnquiryEmail: vi.fn().mockResolvedValue(undefined)
 }));
 
 import app from "../server/server.js";
