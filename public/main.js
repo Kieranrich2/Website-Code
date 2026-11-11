@@ -2,7 +2,7 @@
 
 // Fetch the header.html file
 // Checks if in the services folder
-const isSub = window.location.pathname.includes("/services/");
+const isSub = window.location.pathname.includes("/servicePages/");
 // If it is in the services folder, must go up a level to find the header
 const headerPath = isSub ? "../header.html" : "header.html";
 

@@ -162,6 +162,6 @@ function selectOption(list) {
             })
             .replace(/\s+/g, "");
 
-        window.location.href = `/services/${fileName}.html`;
+        window.location.href = `/servicePages/${fileName}.html`;
     }
 }
