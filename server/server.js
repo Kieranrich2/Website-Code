@@ -72,8 +72,12 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/homepage.html"));
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-});
+// Vercel runs this module as a serverless function and calls the exported
+// app directly, so it must not also bind a port.
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`Server running at http://localhost:${PORT}`);
+    });
+}
 
 export default app;  // For testing 

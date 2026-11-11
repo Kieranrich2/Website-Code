@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/api/index" },
+    { "source": "/services", "destination": "/api/index" },
+    { "source": "/api/reviews", "destination": "/api/index" },
+    { "source": "/sendEmail", "destination": "/api/index" }
+  ]
+}
